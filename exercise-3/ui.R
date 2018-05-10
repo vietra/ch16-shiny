@@ -5,7 +5,14 @@ library(shiny)
 select_values <- colnames(mpg)
 
 # Create a shinyUI with a `fluidPage` layout
-
+ui <- fluidPage(
+  titlePanel("Title"),
+  selectInput("x_variable", label = "X Variable", select_values, selected = "displ"),
+  selectInput("y_variable", label = "Y Variable", select_values, selected = "cyl"),
+  sliderInput("size", label = "Size of Point", min = 1, max = 10, value = 5),
+  selectInput("color", label = "Color", choices = list("Red" = "red", "Blue" = "blue", "Green" = "green")),
+  plotOutput("scatter")
+)
   # A page header
 
   
